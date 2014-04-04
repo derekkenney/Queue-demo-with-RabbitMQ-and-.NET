@@ -1,0 +1,15 @@
+The following source files are modified examples of a production project. The project was the decoupling of multiple websites using a common email service from a synchronous third party email provider.
+
+I used RabbitMQ, and wrote a .NET application that used the RabbitMQ extension library for .NET. I followed the Request / Response / Acknowledge SOA pattern. This was a better choice than Request / Response which would still couple the application to the third party provider response. Following the Request/ Response / Acknowledge pattern made the application asynchronous.
+
+The following are the names of the example files, and a description of what each does
+
+1. Producer.cs - reads user emails from website, and sends the message as an XML template to be stored in RabbitMQ queue.
+
+2. QueueFactory.cs - a factory class responsible for creating instances of the RabbitMQ connection class. This factory initializes the object with connection and queue properties read from config files.
+
+3. Consumer.cs - reads email messages from RabbitMQ to be sent to third party email service
+
+4. EmailService.cs - a service class that creates an HTTP request, and sends the email message read by the consumer object to the third party email provider. Also responsible for receiving the response, and logging it to a log file.
+
+5. Program.cs - a console worker application for reading from the queues, and sending emails. 
