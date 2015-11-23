@@ -1,6 +1,6 @@
-The following source files are modified examples of a production project. The project was the decoupling of multiple websites using a common email service from a synchronous third party email provider.
+The following source files are modified examples of a production project. The project was the decoupling of multiple websites using a common email service from a third party email provider.
 
-I used RabbitMQ, and wrote a .NET application that used the RabbitMQ extension library for .NET. I followed the Request / Response / Acknowledge SOA pattern. This was a better choice than Request / Response which would still couple the application to the third party provider response. Following the Request/ Response / Acknowledge pattern made the application asynchronous.
+I used RabbitMQ, and wrote a .NET Windows service application that uses the RabbitMQ extension library for .NET.
 
 The following are the names of the example files, and a description of what each does
 
